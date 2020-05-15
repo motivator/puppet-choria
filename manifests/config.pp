@@ -65,6 +65,10 @@ class choria::config {
     }
   }
 
+  notify { "choria_choria_identity ${choria::identity}": }
+  notify { "choria_choria_srvdomain ${choria::srvdomain}": }
+  notify { "choria_config_buh ${config}": }
+
   if $choria::manage_server_config {
     file{$choria::server_config_file:
       owner   => $choria::config_user,
